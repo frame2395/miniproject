@@ -8,13 +8,8 @@ Header("Location:logout.php");
 }  
 ?>
 
-
-
-
 <html lang="en">
 <head>
-
-
 
 <style>
 .myDiv {
@@ -42,11 +37,6 @@ Header("Location:logout.php");
   font-family: algerian, courier;
   line-height: 80%;
 }
-.span3 {
-  
-  font-family: algerian, courier;
-  line-height: 80%;
-}
 </style>
 
 
@@ -57,18 +47,18 @@ Header("Location:logout.php");
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 </head>
 <body class="colerA">
+<div class="myDiv">
     
-<div  class="myDiv">
     <img class="span1"src="129_2022123023395612121212.png">
     <img class="span2"src="129_2022123023395612121212.png">
-    
-    <h2>หน้าหลัก</h2>
-    <p>สามารถเพิ่ม ลบ อัพเดต ข้อมูลในหน้าหลักได้เลย</p>
-    <div class="span2"> 
+  <h2>พนักงาน</h2>
+  <p>สามารถเพิ่ม ลบ อัพเดต ข้อมูลในพนักงานได้เลย</p>
+  
+      <div class="span2"> 
         <a href="logout.php" class=" btn btn-danger mr-4 mb-5  ">Logout</a>
     </div>
 </div>
-
+    
 
 <div class="container mt-5 ">
         <a href="index.php" class="btn btn-success mr-2 mb-4">หน้าหลัก</a>
@@ -76,24 +66,21 @@ Header("Location:logout.php");
         <a href="index_type_product.php" class="btn btn-success mr-2 mb-4">ประเภทสินค้า</a>
         <a href="index_list_product.php" class="btn btn-success mr-2 mb-4">การขาย</a>
         <a href="index_employee_product.php" class="btn btn-success mr-2 mb-4 ">พนักงาน</a>
-        
-        <a role="button"  href="ins_form.php?c_no='.$row['c_no'].'" class="btn btn-Success mr-2 mb-4 " >Insert</a>
-
-        
-
-<table id="mytable"  class="table table-striped table-dark ">
+        <a href="ins_form_employee_product.php?c_no='.$row['c_no'].'"class="btn btn-Success mr-2 mb-4">Insert</a>
 
 
-<thead>
+        <table id="mytable"  class="table table-striped table-dark ">
 
-<tr >
-    
+
+        <thead>
+
+<tr>
 <th>NO</th>
-<th>Name</th>
-<th>LastName</th>
+<th>Employee ID</th>
+<th>Employee Name</th>
 <th>Address</th>
 
-<th>SubjectName</th>
+<th>Phone</th>
 <th>Update</th>
 <th>Delete</th>
 
@@ -104,7 +91,7 @@ Header("Location:logout.php");
 
 <?php
 include('connection.php');
-$sql = "SELECT * FROM tbl_customers"; //tebel sql
+$sql = "SELECT * FROM tbl_employee_product"; //tebel sql
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
 //แสดงข้อมูลเป็นตาราง
@@ -118,8 +105,8 @@ echo '<td>'. $row['S_LastName'] . '</td>';
 echo '<td>'. $row['S_Address'] . '</td>';
 echo '<td>'. $row['S_SunjectName'] . '</td>';
 
-echo '<td><a role="button"  href="update.php?c_no='.$row['c_no'].'" class="btn btn-success">update</a></td>';
-echo '<td><a role="button"  href="delete.php?c_no='.$row['c_no'].'" class="btn btn-danger">delete</a></td>';
+echo '<td><a role="button"  href="update_employee_product.php?c_no='.$row['c_no'].'" class="btn btn-success">update</a></td>';
+echo '<td><a role="button"  href="delete_employee_product.php?c_no='.$row['c_no'].'" class="btn btn-danger">delete</a></td>';
 
 
 
@@ -133,15 +120,10 @@ echo " ";
 }
 $conn->close();
 ?>
-
 </tbody>
 </table>
-
-
-
 </div>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js" integrity="sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/" crossorigin="anonymous"></script>
 </body>
-
 </html>

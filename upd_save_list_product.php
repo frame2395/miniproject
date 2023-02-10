@@ -6,13 +6,13 @@ $S_Address =$_POST["S_Address"];
 $S_SunjectName =$_POST["S_SunjectName"];  
 
 include('connection.php');
-$sql = "UPDATE tbl_customers  SET S_Name='$S_Name', S_LastName='$S_LastName', S_Address='$S_Address' , S_SunjectName='$S_SunjectName' WHERE c_no=$c_no";
+$sql = "UPDATE tbl_list_product SET S_Name='$S_Name', S_LastName='$S_LastName', S_Address='$S_Address' , S_SunjectName='$S_SunjectName' WHERE c_no=$c_no";
 if ($conn->query($sql)) {
     echo "<script>alert('Record Inserted Successfully!');</script>";
-    echo "<script>window.location.href='index.php'</script>";
+    echo "<script>window.location.href='index_list_product.php'</script>";
 } else {
     echo "<script>alert('Something went wrong! Please try again!');</script>";
-    echo "<script>window.location.href='index.php'</script>";
+    echo "<script>window.location.href='index_list_product.php'</script>";
 }
 $conn->close();
 ?>
